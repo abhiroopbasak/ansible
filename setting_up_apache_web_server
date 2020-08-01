@@ -1,0 +1,14 @@
+- hosts:all
+  tasks:
+    - package:
+         name: "httpd"
+         state: present
+    - copy:
+         src: "home.html"
+         dest: "/etc/www/html/"
+      register: x
+    - service:
+         name: "httpd"
+         state: started
+    - debug:
+         var: x
