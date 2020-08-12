@@ -1,0 +1,12 @@
+-	hosts: localhost
+vars_files:
+    - var.yml
+tasks:
+     - mail:
+          host: smtp.google.com
+          port: 587
+          username: “{{ user }}” 
+          password: “{{ pass }}”
+          to: receiver@gmail.com
+          subject: Ansible Test Code
+          body: This is the sample code
